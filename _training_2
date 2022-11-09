@@ -1,0 +1,37 @@
+
+
+<!-- 
+• Récupérer l'image docker officiel de Node.js :
+  docker pull node:19.0.1
+
+• Créez un fichier server.js avec le contenu suivant :
+  var http = require("http");
+
+  var server = http.createServer(function(req, res) {
+    res.end("Coucou depuis Docker");
+  });
+
+  server.listen(3000);
+
+• Lancer notre application à l'intérieur d'un conteneur :
+  docker run -d --name node-app -p 3000:3000 -v ${pwd}:/app node:19.0.1 node /app/server.js
+  
+
+-> Quelques explications bien utiles :
+  • -d : cette option permet de lancer le conteneur en tâche de fond à la différence de -it 
+  qui lance le conteneur au premier plan et nous donne un accès direct au conteneur.
+
+  • --name node-app : cette option permet simplement de nommer notre conteneur, 
+  ce qui peut servir pour l'arrêter et le relancer plus simplement.
+
+  • -p 3000:3000 : cette option permet de partager le port de notre machine avec le port du conteneur. 
+  Le premier nombre est le port de notre machine et le deuxième le port dans le conteneur.
+
+  • -v ${pwd}:/app : cette option permet de partager un dossier avec votre conteneur, ici, nous partageons 
+  le dossier courant (où se trouve notre fichier server.js) avec le dossier /app dans le conteneur 
+  (attention si vous êtes sur Mac ou Windows : uniquement votre 'home' est partagé).
+
+  • node:19.0.1 => l'image Docker que nous voulons utiliser.
+
+  • node /app/server.js : la commande à exécuter dans le conteneur, ici un script .js nécessaire à l'exercice.
+-->

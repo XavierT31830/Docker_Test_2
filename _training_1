@@ -1,0 +1,22 @@
+
+<!-- 
+Exercice à partir de l'image de base "ubuntu:trusty" avec la commande :
+  docker pull ubuntu:trusty
+
+Puis conteneur lancé dans cette image :
+  docker run -it ubuntu:trusty bash
+
+Et pour rigoler, voyons ce qu'on peut voir avec la commande :
+  apt-get moo
+    (__) 
+                  (oo)
+            /------\/
+            / |    ||
+          *  /\---/\
+              ~~   ~~
+  ..."Have you mooed today?"...
+
+(Ctrl-d) pour quitter le conteneur
+Supprimer définitivement le conteneur :
+  docker rm 'ID du Conteneur'
+-->
